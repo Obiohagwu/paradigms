@@ -1,5 +1,8 @@
 package main
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 
 
@@ -13,6 +16,20 @@ func fct(line []float64) {
 func fct2(matrix [][]float64) {
 	matrix[2][0]= 12345.6
 }
+
+// Ok, lets implement sorter for 1D slices
+// we could just use the sort built in functions
+func sortFunc(tab []float64) ([]float64){
+	return sort.Float64s(tab)
+
+
+}
+
+// Now we write the function to transpose a matrix
+func transpose(tab [][] float64) ([][]float64){
+	
+}
+
 func main() {
 // array := [][]float64{{7.1, 2.3, 1.1},
 // {4.3, 5.6, 6.8},
