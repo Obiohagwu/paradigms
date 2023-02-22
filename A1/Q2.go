@@ -1,4 +1,5 @@
 package main
+
 import (
 	"fmt"
 	"sort"
@@ -26,9 +27,9 @@ func sortFunc(tab []float64) ([]float64){
 }
 
 // Now we write the function to transpose a matrix
-func transpose(tab [][] float64) ([][]float64){
-	
-}
+//func transpose(tab [][] float64) ([][]float64){
+
+//}
 
 func main() {
 // array := [][]float64{{7.1, 2.3, 1.1},
@@ -39,6 +40,10 @@ array := [][]float64{{1.1, 7.3, 3.2, 0.3, 3.1},
 					{4.3, 5.6, 1.8, 5.3, 3.1},
 					{1.3, 2.7, 3.5, 9.3, 1.1},
 					{7.5, 5.1, 0.6, 2.3, 3.9}}
-fct2(array)
-fct(array[2][:])
+
+//fct2(array)
+//fct(array[2][:])
+//fmt.Println(array[2][:])
+sortFunc(array[2][:])
+fmt.Println(array[2][:])
 }
