@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	//"sort"
 )
 
@@ -51,6 +52,20 @@ func transpose(tab [][] float64) ([][]float64){
 
     return transposed
 }
+
+func sortRows(tab [][]float64){
+	var waitgroup sync.WaitGroup
+	for i := range tab {
+		waitgroup.Add(1)
+		go func (row []float64)  {
+			defer waitgroup.Done()
+			sortFunc(row)
+		}(tab[i])
+
+	}
+	waitgroup.Wait()
+}
+
 
 func main() {
 // array := [][]float64{{7.1, 2.3, 1.1},
