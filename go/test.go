@@ -2,18 +2,11 @@ package main
 
 import "fmt"
 
-
-func main(){
-	prefix := "RRCSIL"
-	arr := []string{"3", "2", "1", "2", "0", "4"}
-	suffix := func(arr []string)(concat string){
-		for _, s := range arr[1:]{
-			concat+=s
-		}
-		return
-
-	}(arr)
-	fmt.Print("Welcome to", prefix[2:5], suffix[:-1])
-	
-	
+func main() {
+	ch := make(chan bool)
+	d := <-ch
+	go func() {
+		ch <- true 
+	}()
+	fmt.Println(d)
 }
