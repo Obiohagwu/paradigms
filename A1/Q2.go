@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	//"sort"
 )
 
 
@@ -20,16 +20,37 @@ func fct2(matrix [][]float64) {
 
 // Ok, lets implement sorter for 1D slices
 // we could just use the sort built in functions
-func sortFunc(tab []float64) ([]float64){
-	return sort.Float64s(tab)
 
+// Bubble sort is easy and fairly quick
+func sortFunc(tab []float64){
+	n := len(tab)
+    for i := 0; i < n-1; i++ {
+        for j := 0; j < n-i-1; j++ {
+            if tab[j] > tab[j+1] {
+                tab[j], tab[j+1] = tab[j+1], tab[j] // swap the elements
+            }
+        }
+    }
 
 }
 
 // Now we write the function to transpose a matrix
-//func transpose(tab [][] float64) ([][]float64){
+// A transpose is basically a swap between columns and rows
 
-//}
+func transpose(tab [][] float64) ([][]float64){
+    transposed := make([][]float64, len(tab[0]) )
+    for i := range transposed {
+        transposed[i] = make([]float64, len(tab))
+    }
+
+    for i := 0; i < len(tab); i++ {
+        for j := 0; j < len(tab[0]) ; j++ {
+            transposed[j][i] = tab[i][j]
+        }
+    }
+
+    return transposed
+}
 
 func main() {
 // array := [][]float64{{7.1, 2.3, 1.1},
@@ -44,6 +65,6 @@ array := [][]float64{{1.1, 7.3, 3.2, 0.3, 3.1},
 //fct2(array)
 //fct(array[2][:])
 //fmt.Println(array[2][:])
-sortFunc(array[2][:])
+//sortFunc(array[2][:])
 fmt.Println(array[2][:])
 }
