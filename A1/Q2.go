@@ -1,5 +1,7 @@
-package main
+// Michael Ohagwu   
+// 300074813
 
+package main
 import (
 	"fmt"
 	"sync"
@@ -22,7 +24,7 @@ func fct2(matrix [][]float64) {
 // Ok, lets implement sorter for 1D slices
 // we could just use the sort built in functions
 
-// Bubble sort is easy and fairly quick
+// Bubble sort is easy and fairly quick to implement
 func sortFunc(tab []float64){
 	n := len(tab)
     for i := 0; i < n-1; i++ {
@@ -43,7 +45,6 @@ func transpose(tab [][] float64) {
     for i := range transposed {
         transposed[i] = make([]float64, len(tab))
     }
-
     for i := 0; i < len(tab); i++ {
         for j := 0; j < len(tab[0]) ; j++ {
             transposed[j][i] = tab[i][j]

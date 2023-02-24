@@ -1,5 +1,7 @@
-package main
+// Michael Ohagwu   
+// 300074813
 
+package main
 import (
 	"fmt"
 	"math"
@@ -13,7 +15,8 @@ type Point struct {
 // Equation for coordinates of midpoint of a line:
 // midpoint = ((x1+x2/2), (y1+y2/2))
 
-// The questoin qants us to find the midpoint between every pair of points
+// length is simply given by pythagorean equation
+// The questoin wants us to find the midpoint between every pair of points
 
 // We are going have ot use a bit of math from the school of combinatorics
 // Loop through lenght of sequence then use xCr to find combinations and midpoints
@@ -38,6 +41,10 @@ func main() {
 	points := []Point{{2., 4.},{6., 8.},{7., 4.},{6., 3.}}
     //ch := make(chan bool, len(points)*(len(points)-1)/2)
 	ch := make(chan string)
+
+	// The questoin wants us to find the midpoint between every pair of points
+	// We are going have ot use a bit of math from the school of combinatorics
+	// Loop through lenght of sequence then use xCr to find combinations and midpoints
 
     for i := 0; i < len(points); i++ {
         for j := i + 1; j < len(points); j++ {

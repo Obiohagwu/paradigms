@@ -1,3 +1,6 @@
+// Michael Ohagwu
+// 300074813
+
 package main
 
 import (
@@ -6,9 +9,8 @@ import (
 	"time"
 )
 
-
 func RandomGenerator(wg *sync.WaitGroup, stop <-chan bool, m int) <-chan int {
-	intStream := make(chan int)
+	intStream := make(chan int) // initialise a stream of ints
 	go func() {
 		defer wg.Done()
 		defer close(intStream)
@@ -27,31 +29,29 @@ func RandomGenerator(wg *sync.WaitGroup, stop <-chan bool, m int) <-chan int {
 }
 
 func Multiple(x int, m int) bool {
-	return x%m == 0
+	return x%m == 0 //retirns True if x is multiple of m
 }
 
-
-
 func main() {
-	var wg sync.WaitGroup
+	var wg sync.WaitGroup // initialise the a sync waitgroup
 	stop := make(chan bool)
 
-	wg.Add(3)
-	ch5 := RandomGenerator(&wg, stop, 5)
-	ch13 := RandomGenerator(&wg, stop, 13)
-	ch97 := RandomGenerator(&wg, stop, 97)
+	wg.Add(3) // 3 channels
+	channel5 := RandomGenerator(&wg, stop, 5)
+	channel13 := RandomGenerator(&wg, stop, 13)
+	channel97 := RandomGenerator(&wg, stop, 97)
 
 	count5, count13, count97 := 0, 0, 0
 
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 100; i++ { // we want a 100 total, so we iterate from 0-99
 		select {
-		case n := <-ch5:
+		case n := <-channel5:
 			count5++
 			fmt.Printf("%d is a multiple of 5\n", n)
-		case n := <-ch13:
+		case n := <-channel13:
 			count13++
 			fmt.Printf("%d is a multiple of 13\n", n)
-		case n := <-ch97:
+		case n := <-channel97:
 			count97++
 			fmt.Printf("%d is a multiple of 97\n", n)
 		}
