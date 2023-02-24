@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+func Multiple(x int, m int) bool {
+	return x%m == 0
+}
 
 func RandomGenerator(wg *sync.WaitGroup, stop <-chan bool, m int) <-chan int {
 	intStream := make(chan int)
@@ -25,12 +28,6 @@ func RandomGenerator(wg *sync.WaitGroup, stop <-chan bool, m int) <-chan int {
 	}()
 	return intStream
 }
-
-func Multiple(x int, m int) bool {
-	return x%m == 0
-}
-
-
 
 func main() {
 	var wg sync.WaitGroup

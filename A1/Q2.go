@@ -38,7 +38,7 @@ func sortFunc(tab []float64){
 // Now we write the function to transpose a matrix
 // A transpose is basically a swap between columns and rows
 
-func transpose(tab [][] float64) ([][]float64){
+func transpose(tab [][] float64) {
     transposed := make([][]float64, len(tab[0]) )
     for i := range transposed {
         transposed[i] = make([]float64, len(tab))
@@ -50,7 +50,6 @@ func transpose(tab [][] float64) ([][]float64){
         }
     }
 
-    return transposed
 }
 
 func sortRows(tab [][]float64){
@@ -81,5 +80,13 @@ array := [][]float64{{1.1, 7.3, 3.2, 0.3, 3.1},
 //fct(array[2][:])
 //fmt.Println(array[2][:])
 //sortFunc(array[2][:])
-fmt.Println(array[2][:])
+fmt.Println("Input:", array)
+sortRows(array)
+transpose(array)
+sortRows(array)
+transpose(array)
+fmt.Println("Output:", array)
+
+
+//fmt.Println(array[2][:])
 }
